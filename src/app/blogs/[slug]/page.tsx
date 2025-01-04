@@ -88,10 +88,7 @@ console.log(contentHtml)
         </ReactMarkdown>
       </div>
 
-      {/* Footer */}
-      <div className="mt-16 text-center text-gray-600">
-        <p className="text-sm sm:text-base">&copy; {new Date().getFullYear()} Your Blog Name</p>
-      </div>
+    
     </div>
   );
 };
