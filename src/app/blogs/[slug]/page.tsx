@@ -4,6 +4,7 @@ import { urlFor } from "@/app/sanityClient";
 import { marked } from "marked";
 import ReactMarkdown from "react-markdown"; // Import react-markdown
 import remarkGfm from "remark-gfm"; // Optional: for GitHub Flavored Markdown (tables, task lists, etc.)
+import Comments from "@/app/components/Comments";
 interface GalleryImage {
     _key: string;
     _type: string;
@@ -44,6 +45,7 @@ const BlogDetails = async ({ params }: BlogDetailsProps) => {
   const contentHtml = marked(blog.content);
 console.log(contentHtml)
   return (
+    <>
     <div className="container mx-auto px-6 py-10 bg-gray-50 text-gray-900">
       {/* Title and Date */}
       <div className="mb-8 text-center">
@@ -90,6 +92,8 @@ console.log(contentHtml)
 
     
     </div>
+    <div><Comments/></div>
+    </>
   );
 };
 

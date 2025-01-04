@@ -1,6 +1,7 @@
 import React from 'react';
 import client from './sanityClient';
 import { urlFor } from './sanityClient';
+import Hero from './components/Hero';
 
 type Blog = {
   _id: string;
@@ -47,7 +48,8 @@ const page = async () => {
   return (
     <>
    
-
+  {/* Call to Action Section */}
+ <Hero/>
       {/* Latest Blogs Section */}
       <section id="latest-blogs" className="container mx-auto px-6 py-12">
         <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center dark:text-gray-200">
