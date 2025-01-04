@@ -40,7 +40,7 @@ const Blogs = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((blog) => (
             <div
-              key={blog._id}
+              key={blog.blogtitle}
               className="bg-white shadow-lg rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300"
             >
               {/* Blog Thumbnail */}
