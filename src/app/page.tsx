@@ -76,11 +76,11 @@ const page = async () => {
               className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 dark:bg-gray-800 dark:shadow-gray-700"
             >
               
-                <img
+              {blog.thumbnail &&  <img
                   src={urlFor(blog.thumbnail)}
                   alt={blog.blogtitle}
                   className="w-full h-56 object-cover"
-                />
+                />}
               
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2 dark:text-gray-200">

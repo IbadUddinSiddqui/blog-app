@@ -1,7 +1,12 @@
 // components/MarkdownRenderer.js
 import React from 'react';
 
-const MarkdownRenderer = ({ content } : any) => {
+interface ContentProps {
+  title: string;
+  content: string; 
+}
+
+const MarkdownRenderer: React.FC<{ content: ContentProps }> = ({ content }) => {
   return (
     <div>
       <h1>{content.title}</h1>

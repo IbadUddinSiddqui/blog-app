@@ -1,6 +1,6 @@
 import { Rule } from "sanity";
 
-export default {
+const categories= {
     name: 'categories',
     title: 'Category',
     type: 'document',
@@ -45,4 +45,4 @@ export default {
       },
     ],
   };
-  
+  export default categories;

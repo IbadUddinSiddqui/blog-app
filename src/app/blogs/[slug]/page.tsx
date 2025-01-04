@@ -4,13 +4,23 @@ import { urlFor } from "@/app/sanityClient";
 import { marked } from "marked";
 import ReactMarkdown from "react-markdown"; // Import react-markdown
 import remarkGfm from "remark-gfm"; // Optional: for GitHub Flavored Markdown (tables, task lists, etc.)
-
+interface GalleryImage {
+    _key: string;
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  }
+  
 interface BlogDetailsProps {
-  params: { slug: string };
+    params: Promise<{ slug: string }
+    >
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
 const BlogDetails = async ({ params }: BlogDetailsProps) => {
-  const { slug } = params;
+  const { slug } = await  params;
 
   const blog = await client.fetch(
     `*[_type == "blog" && slug.current == $slug][0]{
@@ -32,7 +42,7 @@ const BlogDetails = async ({ params }: BlogDetailsProps) => {
   }
 
   const contentHtml = marked(blog.content);
-
+console.log(contentHtml)
   return (
     <div className="container mx-auto px-6 py-10 bg-gray-50 text-gray-900">
       {/* Title and Date */}
@@ -57,7 +67,7 @@ const BlogDetails = async ({ params }: BlogDetailsProps) => {
 
       {/* Gallery */}
       <div className="flex flex-wrap justify-center gap-6 mb-12">
-        {blog.gallery && blog.gallery.map((image: any, index: number) => (
+        {blog.gallery && blog.gallery.map((image : GalleryImage, index: number) => (
           <div key={index} className="w-full sm:w-[30vw] md:w-[22vw] lg:w-[18vw] xl:w-[15vw]">
             <img
               src={urlFor(image)}

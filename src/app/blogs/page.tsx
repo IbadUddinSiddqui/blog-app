@@ -3,9 +3,18 @@ import React, { useEffect, useState } from "react";
 import { urlFor } from "../sanityClient";
 import client from "../sanityClient";
 import Link from "next/link";
-
+interface Blog {
+    _id: string;
+    slug: {
+      current: string;
+    };
+    blogtitle: string;
+    thumbnail: string; 
+    datepublished: string;
+  }
+  
 const Blogs = () => {
-  const [blogs, setBlogs] = useState<any[]>([]);
+  const [blogs, setBlogs] = useState<Blog[]>([]);
 
   useEffect(() => {
     client
